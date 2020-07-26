@@ -1,0 +1,216 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="welcome" class="secTitle newsTitle">
+    Welcome to the official Araiana Grande Fan Page!
+</div>
+
+<div style="text-align: center;">
+    <canvas id="ariScreenSaver" class="dvd-canvas"></canvas>
+</div>
+
+<hr />
+
+<div class="secTitle">
+    <h2>News & Gossip..</h2>
+</div>
+
+<div class="col-md-4">
+    <div class="ft-recipe">
+        <div class="ft-recipe__content">
+            <header class="content__header">
+                <div class="row-wrapper">
+                    <h2 class="recipe-title">'Thank U For Believing in Me'</h2>
+                </div>
+            </header>
+            <p class="description">
+                Ariana Grande gave a special shout-out to her record label, Republic,
+                on the eighth anniversary of signing a recording deal with the company.
+                "Signed to RepublicRecords eight years ago today and released my debut album six years ago ..."
+                the pop star tweeted Saturday (Aug. 10). "Thankful for my republic family and deeply proud of
+                every project we’ve released together. music is the most special thing in the world. thank u
+                for believing in me and my voice."
+            </p>
+            <footer class="content__footer"><a target="_blank" href="https://www.billboard.com/articles/columns/pop/8527106/ariana-grande-thanks-republic-records-anniversary-of-label-signing-umg-universal-music">For the full story..</a></footer>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="ft-recipe">
+        <div class="ft-recipe__content">
+            <header class="content__header">
+                <div class="row-wrapper">
+                    <h2 class="recipe-title">#ArianaGrande trends</h2>
+                </div>
+            </header>
+            <p class="description">
+                So it may have been rather confusing to see Twitter declaring the Thank U, Next singer
+                ‘over’ today. The hashtag #arianagrandeisoverparty began trending overnight after the
+                26-year-old hit back at claims she was being sued by Frank Ocean. The hullabaloo started
+                after a fan named Shannon apparently tweeted about a rumour that Ariana had replaced a cover
+                of Ocean’s Close To You with her track with Cashmere Cat, Adore, as the interlude on her current...
+            </p>
+            <footer class="content__footer"><a target="_blank" href="https://metro.co.uk/2019/08/09/arianagrandeisoverparty-trends-star-defends-frank-ocean-lawsuit-rumours-10543974/">For the full story..</a></footer>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 newsCard">
+    <div class="ft-recipe">
+        <div class="ft-recipe__content">
+            <header class="content__header">
+                <div class="row-wrapper">
+                    <h2 class="recipe-title">NORMANI OPENS UP</h2>
+                </div>
+            </header>
+            <p class="description">
+                Since joining her Sweetner tour, Normani has become great friends with Ariana Grande.
+                And while the two enjoyed being "just typical girls" on the road, they also found some time
+                to work together on Normani's upcoming single, "Motivation.""She's been very supportive of me too.
+                I talk to her about the creative process," Normani told Rolling Stone. "I'm like, 'When did you know your
+                album was done.' She was just like, 'Honestly, you'll know. Nobody will have to tell you...
+            </p>
+            <footer class="content__footer"><a target="_blank" href="https://popcrush.com/normani-ariana-grande-collaboration-single-motivation/">For the full story..</a></footer>
+        </div>
+    </div>
+</div>
+
+<br />
+<hr />
+
+<div class="secTitle">
+    <h2>About Ariana</h2>
+</div>
+<div id="about">
+    <div class="Stories">
+
+        Justin Bieber and Ariana Grande Address Coachella Lip-Sync Controversy
+        "U were singing with the back tracking like most cameos do," Grande tweeted.
+
+
+        Grande made history at Coachella Arichella this year as she became the youngest person to ever headline the festival. She's also only the fourth woman to ever do so. Needless to say, her performance left her tens of thousands of fans at Coachella in total awe.
+        One person, however, wanted to make a little bit of a more permanent mark on the historic show.
+
+        On Thursday, the 25-year-old singer kept things real when a fan tweeted, "Music is your therapy and I love seeing it heal you." While many expected the "Thank U, Next" crooner to agree with her Arianator, she revealed that's not always the case.
+
+        "Making it is healing," she replied in a since-deleted tweet (which was captured by several fan accounts). "Performing it is like reliving it all over again and it is hell."
+
+
+        It was only last year that Grande and Miller attended Coachella together, which also marked one of their final public outings as a couple before their May 2018 split. Following the singer's surprise appearance during DJ Kygo's set, Miller would tweet, "Very proud of this girl right here. Welcome back. We missed you." Last September, Miller died from a drug overdose
+
+    </div>
+</div>
+
+<div class="secTitle col-md-8">
+    <h2>Latest Video</h2>
+</div>
+
+<div class="secTitle col-md-4">
+    <h2>Latest Tweets</h2>
+</div>
+
+<div class="video-canvas col-md-8">
+    <video height="100%" width="650" controls poster="~/Content/images/videoPhoto.png">
+        <source src="~/video/Ariana Grande - thank u next.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="col-md-4" id="contentWrapper">
+    <div id="tweetsList" style="overflow-y: scroll">
+        <a class="twitter-timeline" href="https://twitter.com/ArianaG59221418/lists/tweets-from-ariana?ref_src=twsrc%5Etfw">A Twitter List by ArianaG59221418</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+</div>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<script>
+    // Adjust the function to the browser
+    window.requestAnimFrame =
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (callback) {
+            window.setTimeout(callback, 1000 / 30);
+        };
+    var baseImage = "../Content/images/icon.jpg", imgW = 80, imgH = 67;
+
+    // Get the canvas HTML DOM object
+    var canvas = $("#ariScreenSaver")[0];
+
+    // Canvas context - on wich we will draw
+    var ctx = canvas.getContext('2d');
+    var canvasW = canvas.width, canvasH = canvas.height;
+
+    // Set the object initial location:
+    //  Math.floor will return the largest integer less than or equal to a given number
+    //  Math.random will return floating number between 0-1 (inclusive 0 but not 1)
+    var imgX = Math.floor(Math.random() * (canvasW - imgW));
+    var imgY = Math.floor(Math.random() * (canvasH - imgH));
+    var moveX, moveY = 1;
+
+    // Initial direction for the object movement
+    var xDir = "right",
+        yDir = "up";
+
+    var init = function () {
+        // File the rect with background color -
+        // so the object redraw on clean background and won't be redraw over and over again
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvasW, canvasH);
+        ctx.drawImage(base_image, imgX, imgY, imgW, imgH);
+
+        if (xDir == "right") {
+            if (imgX >= canvasW - imgW) {
+                xDir = "left";
+                imgX = imgX - moveX;
+            } else {
+                imgX = imgX + moveX;
+            }
+        } else {
+            if (imgX <= 0) {
+                xDir = "right";
+                imgX = imgX + moveX;
+            } else {
+                imgX = imgX - moveX;
+            }
+        }
+        if (yDir == "down") {
+            if (imgY >= canvasH - imgH) {
+                yDir = "up";
+                imgY = imgY - moveY;
+            } else {
+                imgY = imgY + moveY;
+            }
+        } else {
+            if (imgY <= 0) {
+                yDir = "down";
+                imgY = imgY + moveY;
+            } else {
+                imgY = imgY - moveY;
+            }
+        }
+
+        requestAnimFrame(init);
+    }
+
+    // In case the canvas size was changed
+    var reinit = function () {
+        canvasW = canvas.width, canvasH = canvas.height;
+        // Making sure the object won't go the same path
+        (canvasW - imgW === canvasH - imgH) ? moveX = 1.5 : moveX = 1;
+    }
+    reinit();
+
+    var base_image = new Image();
+    base_image.src = baseImage;
+    base_image.onload = function () {
+        window.addEventListener("resize", reinit);
+        init();
+    };
+</script>
