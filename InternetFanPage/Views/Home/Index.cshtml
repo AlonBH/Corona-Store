@@ -2,23 +2,24 @@
     ViewBag.Title = "Home Page";
 }
 
-    <img id="covidBG" src="/assets/covidBG.png" style="max-width: -webkit-fill-available;
-        box-shadow: 0px 0px 15px 2px #ff0000;
+<div id="welcome" class="secTitle newsTitle" style="
+        height: 339px;
+        width: -webkit-fill-available !important;
+        padding: 0 !important;">
+    <div id="covidBG" src="/assets/covidBG.png" style="        max-height: 100%;
+        max-width: -webkit-fill-available;
+        box-shadow: 0px 0px 15px 2px #acacac;
         position: relative;
         top: -25px;
         z-index: -176;
-    ">
-<div id="welcome" class="secTitle newsTitle">
+        background: url(&quot;/assets/covidBG.png&quot;);
+        background-size: COVER;
+        background-repeat: no-repeat;
+        border-radius: 20px;">
+        <canvas id="ariScreenSaver" class="dvd-canvas" style="width: -webkit-fill-available; height: -webkit-fill-available;"></canvas>
+    </div>
 </div>
 
-<div style="text-align: center;">
-    <canvas id="ariScreenSaver" class="dvd-canvas"><img id="covidBG" src="/assets/covidBG.png" style="max-width: -webkit-fill-available;
-        box-shadow: 0px 0px 15px 2px #ff0000;
-        position: relative;
-        top: -25px;
-        z-index: -176;
-    "></canvas>
-</div>
 
 <hr />
 
@@ -140,7 +141,12 @@
         function (callback) {
             window.setTimeout(callback, 1000 / 30);
         };
-    var baseImage = "../Content/images/icon.jpg", imgW = 80, imgH = 67;
+
+
+    var background = new Image();
+    background.src = "/assets/covidBG.png";
+    var baseImage = "/assets/covid8.png", imgW = 20, imgH = 33;
+
 
     // Get the canvas HTML DOM object
     var canvas = $("#ariScreenSaver")[0];
@@ -163,8 +169,8 @@
     var init = function () {
         // File the rect with background color -
         // so the object redraw on clean background and won't be redraw over and over again
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(0, 0, canvasW, canvasH);
+
+        ctx.clearRect(0, 0, canvasW, canvasH)
         ctx.drawImage(base_image, imgX, imgY, imgW, imgH);
 
         if (xDir == "right") {
@@ -215,4 +221,5 @@
         window.addEventListener("resize", reinit);
         init();
     };
+
 </script>
