@@ -2,6 +2,8 @@
     padding-bottom: 20px;
 }
 
+
+
 #welcome {
     text-align: center;
 }
@@ -32,49 +34,64 @@ textarea {
     src: url(../fonts/DancingScript.ttf);
 }
 
-.fixedPart {
-    height: 155px;
+/*.fixedPart {
+    height: 100px;
     background-color: #fbe2f0;
-}
+}*/
 
-.body-content {
-    padding-top: 100px;
-}
 
 .web-title {
+    height: 80px;
     display: flex;
-    justify-content: flex-start;}
+    justify-content: flex-start;
+    align-items:center;
+    background: rgb(0,14,83);
+    background: radial-gradient(circle, rgba(0,14,83,1) 0%, rgba(30,1,173,1) 100%);
+}
 
 #logoutBtn {
     margin:20px;
 }
 
+#loginBtn {
+    box-shadow: inset 0px -3px 7px 0px #29bbff;
+    background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+    background-color: #2dabf9;
+    border-radius: 35px;
+    border: 1px solid #0b0e07;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Trebuchet MS;
+    font-size: 16px;
+    padding: 11px 32px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #263666;
+}
 
 .login {
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
+    margin-left: auto;
+    margin-right: 25px;
 }
 
 
 .home-Title {
-    text-shadow: 3px 2px gray;
-    font-family: myFont;
-    font-size: 100px;
+    color: antiquewhite;
+    font-family: monospace;
+    font-size: 30px;
     text-align: center;
     transition: font-size 2s;
-
+    margin-left: 25px;
 }
 
-    .home-Title:hover {
-        font-size: 110px;
-    }
+#mainLogo {
+    height: 50px;
+}
 
 .hello-Title {
     font-family: myFont;
     font-size: 40px;
     text-align: right;
-
 }
 
 

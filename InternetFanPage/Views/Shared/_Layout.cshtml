@@ -16,52 +16,50 @@
 <body>
     <div class="fixedPart">
         <div class="web-title">
-            <div class="home-Title col-sm-10">
-                COVID-19
+            <div class="home-Title">
+                <img id="mainLogo" src="/assets/logo white.png">
             </div>
-
 
             @if (Session["User"] == null)
             {
 
-                <div class="col-sm-2 login">
-                    <a href="#" id="loginBtn" class="loginBtn">Login/Register</a>
+                <div class="login">
+                    <a href="#" id="loginBtn" class="loginBtn">Login</a>
                 </div>
             }
             else
             {
                 <h1 class="hello-Title">Hello @Session["User"]</h1>
                 <a href="#" id="logoutBtn">Log Out</a>
-
             }
         </div>
-        <div class="navbar navbar-inverse">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Shop", "Products", "Home")</li>
+            <div class="navbar navbar-inverse">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Shop", "Products", "Home")</li>
                         <li>@Html.ActionLink("Pandemic Locations", "Locations", "Home")</li>
 
-                        @if (Session["User"] != null)
-                        {
-                            <li>@Html.ActionLink("My Shopping", "UserProducts", "Home")</li>
-                        }
-                        @if (Session["IsAdmin"] != null && (bool)Session["IsAdmin"])
-                        {
-                            <li>@Html.ActionLink("Manage", "Manager", "Home")</li>
-                        }
-                    </ul>
+                            @if (Session["User"] != null)
+                            {
+                                <li>@Html.ActionLink("My Shopping", "UserProducts", "Home")</li>
+                            }
+                            @if (Session["IsAdmin"] != null && (bool)Session["IsAdmin"])
+                            {
+                                <li>@Html.ActionLink("Manage", "Manager", "Home")</li>
+                            }
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 
 
