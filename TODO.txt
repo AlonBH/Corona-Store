@@ -1,0 +1,22 @@
+index:
+set poster image for video
+change copyright
+change about
+change 2 of the 3 update cards
+change fonts and theme
+go over headers
+
+
+tour:
+change to pharmacies
+tab name to health care...
+
+shop:
+change to apropriate products (masks, dildos, more masks)
+
+error:
+check to see error page
+
+other:
+fix db connection
+
