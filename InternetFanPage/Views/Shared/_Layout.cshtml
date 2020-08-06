@@ -9,7 +9,7 @@
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/Site.css" rel="stylesheet" type="text/css"/>
 
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
@@ -33,26 +33,36 @@
                 <a href="#" id="logoutBtn">Log Out</a>
             }
         </div>
-            <div class="navbar navbar-inverse">
-                <div class="container">
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Shop", "Products", "Home")</li>
+        @*<div class="navbar">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Shop", "Products", "Home")</li>
                         <li>@Html.ActionLink("Pandemic Locations", "Locations", "Home")</li>
 
-                            @if (Session["User"] != null)
-                            {
-                                <li>@Html.ActionLink("My Shopping", "UserProducts", "Home")</li>
-                            }
-                            @if (Session["IsAdmin"] != null && (bool)Session["IsAdmin"])
-                            {
-                                <li>@Html.ActionLink("Manage", "Manager", "Home")</li>
-                            }
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                @if (Session["User"] != null)
+                {
+                    <li>@Html.ActionLink("My Shopping", "UserProducts", "Home")</li>
+                }
+                @if (Session["IsAdmin"] != null && (bool)Session["IsAdmin"])
+                {
+                    <li>@Html.ActionLink("Manage", "Manager", "Home")</li>
+                }
+            </ul>
+        </div>*@
+        <div id="navbar">
+                <div class="navLink">@Html.ActionLink("Home", "Index", "Home")</div>
+                <div class="navLink">@Html.ActionLink("Shop", "Products", "Home")</div>
+                <div class="navLink">@Html.ActionLink("Tour", "Concerts", "Home")</div>
+
+                @if (Session["User"] != null)
+                {
+                    <div class="navLink">@Html.ActionLink("My Shopping", "UserProducts", "Home")</div>
+                }
+                @if (Session["IsAdmin"] != null && (bool)Session["IsAdmin"])
+                {
+                    <div class="navLink">@Html.ActionLink("Manage", "Manager", "Home")</div>
+                }
+        </div>
     </div>
 
 
@@ -98,7 +108,7 @@
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 
-    <div class="container body-content">
+    <div class="">
         @RenderBody()
         <hr />
         <footer>
@@ -108,6 +118,19 @@
 
     <script>
         jQuery(function ($) {
+            $(window).scroll(function () {
+                var scroll = $(window).scrollTop();
+
+                //>=, not <=
+                if (scroll >= 100) {
+                    //clearHeader, not clearheader - caps H
+                    $(".web-title").addClass("scrolled");
+                }
+                if (scroll < 100) {
+                    //clearHeader, not clearheader - caps H
+                    $(".web-title").removeClass("scrolled");
+                }
+            });
 
             // Login
             $("#loginBtn").click(function (e) {
