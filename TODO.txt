@@ -1,15 +1,12 @@
 index:
 set poster image for video
-change copyright
-change about
-change 2 of the 3 update cards
 change fonts and theme
 go over headers
 
 
-tour:
-change to pharmacies
-tab name to health care...
+pandemic locations:
+- fix filter by population
+- after filter city doesn't show stats, only until press on map
 
 shop:
 change to apropriate products (masks, dildos, more masks)
@@ -18,5 +15,6 @@ error:
 check to see error page
 
 other:
-fix db connection
+change db context name (from fanpage...)
 
+admin login:

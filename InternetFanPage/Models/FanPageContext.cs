@@ -15,7 +15,7 @@ namespace InternetFanPage.Models
         }
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<Concert> Concerts { get; set; }
+        public DbSet<Location> Locations { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Inventory> Inventory { get; set; }
         public DbSet<Sale> Sales { get; set; }

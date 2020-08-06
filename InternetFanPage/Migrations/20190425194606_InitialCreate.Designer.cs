@@ -30,9 +30,9 @@ namespace InternetFanPage.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("InternetFanPage.Models.Concert", b =>
+            modelBuilder.Entity("InternetFanPage.Models.Location", b =>
                 {
-                    b.Property<int>("ConcertID")
+                    b.Property<int>("LocationID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address");
@@ -41,11 +41,11 @@ namespace InternetFanPage.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<decimal>("Price");
+                    b.Property<decimal>("Population");
 
-                    b.HasKey("ConcertID");
+                    b.HasKey("LocationID");
 
-                    b.ToTable("Concerts");
+                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("InternetFanPage.Models.Product", b =>
@@ -63,7 +63,7 @@ namespace InternetFanPage.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<decimal>("Price");
+                    b.Property<decimal>("Population");
 
                     b.HasKey("ProductID");
 

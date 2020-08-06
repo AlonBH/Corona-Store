@@ -117,15 +117,15 @@ namespace InternetFanPage.Services
             }
         }
 
-        public bool DeleteConcert(int id)
+        public bool DeleteLocation(int id)
         {
             using (var context = new FanPageContext())
             {
-                var targetConcert = context.Concerts.Where(c => c.ConcertID == id).FirstOrDefault();
-                context.Concerts.Remove(targetConcert);
+                var targetLocation = context.Locations.Where(c => c.LocationID == id).FirstOrDefault();
 
                 try
                 {
+                    context.Locations.Remove(targetLocation);
                     context.SaveChanges();
                 }
                 catch (Exception)
@@ -182,15 +182,16 @@ namespace InternetFanPage.Services
             }
         }
 
-        public object UpdateConcert(Concert concert)
+        public object UpdateLocation(Location location)
         {
             using (var context = new FanPageContext())
             {
-                var targetConcert = context.Concerts.Where(c => c.ConcertID == concert.ConcertID).FirstOrDefault();
-                targetConcert.Price = concert.Price;
+                var targetLocation = context.Locations.Where(c => c.LocationID == location.LocationID).FirstOrDefault();
+                
                 try
                 {
-                    context.Concerts.Update(targetConcert);
+                    targetLocation.Population = location.Population;
+                    context.Locations.Update(targetLocation);
                     context.SaveChanges();
                 }
                 catch (Exception)

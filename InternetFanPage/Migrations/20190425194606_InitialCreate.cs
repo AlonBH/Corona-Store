@@ -21,7 +21,7 @@ namespace InternetFanPage.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Concerts",
+                name: "Locations",
                 columns: table => new
                 {
                     ConcertID = table.Column<int>(nullable: false)
@@ -80,7 +80,7 @@ namespace InternetFanPage.Migrations
                 name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "Concerts");
+                name: "Locations");
 
             migrationBuilder.DropTable(
                 name: "Products");

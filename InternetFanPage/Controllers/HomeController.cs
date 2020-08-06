@@ -11,24 +11,22 @@ namespace InternetFanPage.Controllers
         private FanPageContext ct = new FanPageContext();
         ShopService shopService = new ShopService();
         ProductsPageModel model = new ProductsPageModel();
-        ConcertsService concertService = new ConcertsService();
+        LocationsService _locationService = new LocationsService();
 
         public ActionResult Index()
         {
             return View();
         }
        
-        public ActionResult Concerts(string searchTermName, int? searchTermPrice, DateTime? searchTermDateStart, DateTime? searchTermDateEnd)
+        public ActionResult Locations(string searchTermName, int? searchTermPopulation)
         {
-            //var model = null;
-            
-            if (searchTermName == null && searchTermPrice == null && searchTermDateStart == null && searchTermDateEnd == null)
+            if (searchTermName == null && searchTermPopulation == null)
             {
-                return View(ct.Concerts.AsEnumerable());
+                return View(ct.Locations.AsEnumerable());
             }
             else
             {
-                 var model = concertService.searchConcert(searchTermName ?? string.Empty, searchTermPrice, searchTermDateStart, searchTermDateEnd);
+                 var model = _locationService.SearchLocations(searchTermName ?? string.Empty, searchTermPopulation);
                  return View(model);
             }
 
@@ -139,9 +137,9 @@ namespace InternetFanPage.Controllers
             return Json(shopService.AddProduct(product));
         }
         [HttpPost]
-        public ActionResult UpdateConsert(Concert concert)
+        public ActionResult UpdateLocation(Location location)
         {
-            return Json(shopService.UpdateConcert(concert));
+            return Json(shopService.UpdateLocation(location));
         }
         [HttpPost]
         public ActionResult UpdateInventory(Inventory inventory)
@@ -149,9 +147,9 @@ namespace InternetFanPage.Controllers
             return Json(shopService.UpdateInventory(inventory));
         }
         [HttpDelete]
-        public ActionResult DeleteConcert(int id)
+        public ActionResult DeleteLocation(int id)
         {
-            if (shopService.DeleteConcert(id))
+            if (shopService.DeleteLocation(id))
                 return Json(id);
             else
                 return Json(false);
