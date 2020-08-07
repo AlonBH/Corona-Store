@@ -9,7 +9,7 @@ namespace InternetFanPage.Services
     {
         public IList<Location> SearchLocations(string name, int? population)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 IQueryable<Location> locations = context.Locations.Where(p => p.City.ToLower().Contains(name.ToLower()));
 

@@ -10,7 +10,7 @@ namespace InternetFanPage.Services
     {
         public IList<Product> GetAllProductsFromInventory()
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 return context.Products.ToList();
             }
@@ -18,7 +18,7 @@ namespace InternetFanPage.Services
 
         public IList<CategoryResult> GetAllCategories()
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 var categories = context.Categories.ToList();
 
@@ -44,7 +44,7 @@ namespace InternetFanPage.Services
 
         public IList<SalesCategory> SalesPerCategory()
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
 
                 return context.Sales.Join(context.Products, s => s.ProductID, p => p.ProductID, (sale, product) => new
@@ -64,7 +64,7 @@ namespace InternetFanPage.Services
 
         private string GetCategoryName(int key)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 return context.Categories.Where(c => c.CategoryID == key).FirstOrDefault().Name;
             }
@@ -73,7 +73,7 @@ namespace InternetFanPage.Services
 
         public IList<Category> GetAllAndNullCategories()
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 return (context.Categories.ToList());
             }
@@ -82,7 +82,7 @@ namespace InternetFanPage.Services
         public IList<Product> SearchProducts(string term, int? price)
         {
 
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 if (price != null)
                 {
@@ -99,7 +99,7 @@ namespace InternetFanPage.Services
 
         public IList<Product> SearchProducts(string term, int? price, int categoryId)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 var products = context.Products.Where(p => (p.Name.ToLower().Contains(term.ToLower()) || p.Description.ToLower().Contains(term.ToLower())));
 
@@ -119,7 +119,7 @@ namespace InternetFanPage.Services
 
         public bool DeleteLocation(int id)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 var targetLocation = context.Locations.Where(c => c.LocationID == id).FirstOrDefault();
 
@@ -139,7 +139,7 @@ namespace InternetFanPage.Services
 
         public bool UpdateInventory(Inventory inventory)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 try
                 {
@@ -156,7 +156,7 @@ namespace InternetFanPage.Services
 
         public Product AddProduct(Product pProduct)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 Product newProd;
                 try
@@ -184,7 +184,7 @@ namespace InternetFanPage.Services
 
         public object UpdateLocation(Location location)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 var targetLocation = context.Locations.Where(c => c.LocationID == location.LocationID).FirstOrDefault();
                 
@@ -205,7 +205,7 @@ namespace InternetFanPage.Services
 
         public bool BuyProduct(int UserId, int id)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
 
                 var targetInventory = context.Inventory.Where(p => p.ProductID == id).FirstOrDefault();
@@ -237,7 +237,7 @@ namespace InternetFanPage.Services
 
         public Product UpdateProduct(Product product)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 var targetProduct = context.Products.Where(p => p.ProductID == product.ProductID).FirstOrDefault();
 
@@ -265,7 +265,7 @@ namespace InternetFanPage.Services
 
         public bool DeleteProduct(int id)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 var targetProduct = context.Products.Where(p => p.ProductID == id).FirstOrDefault();
                 context.Products.Remove(targetProduct);
@@ -285,7 +285,7 @@ namespace InternetFanPage.Services
 
         public ProductResult GetProduct(int id)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 return context.Products
                     .Join(context.Categories, p => p.CategoryID, c => c.CategoryID, (product, category) => new ProductResult(product, category))
@@ -297,7 +297,7 @@ namespace InternetFanPage.Services
 
         public ProductStockResult[] GetProductsStock()
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 return context.Inventory.Join(context.Products, i => i.ProductID, p => p.ProductID, (inventory, product) => new
                 {
@@ -316,7 +316,7 @@ namespace InternetFanPage.Services
 
         public IList<Product> GetProductsByCategory(int id)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 return context.Products.Where(p => p.CategoryID == id).ToList();
             }
@@ -324,7 +324,7 @@ namespace InternetFanPage.Services
 
         public IList<Sale> GetAllSales()
         {
-            using (var ctx = new FanPageContext())
+            using (var ctx = new CoronaPageContext())
             {
                 return ctx.Sales.ToList();
             }
@@ -332,7 +332,7 @@ namespace InternetFanPage.Services
 
         public dynamic GetAllSalesByUser()
         {
-            using (var ctx = new FanPageContext())
+            using (var ctx = new CoronaPageContext())
             {
                 return ctx.Sales.GroupBy(s => s.UserID,
                     s => s.ProductID,
@@ -355,6 +355,11 @@ namespace InternetFanPage.Services
                 }
 
                 tempDataset.Add(userSales.Products.ToArray());
+            }
+
+            if (currUserSales == null || currUserSales.Length == 0)
+            {
+                return new List<ProductResult>();
             }
 
             int[][] dataset = tempDataset.ToArray();
@@ -390,7 +395,7 @@ namespace InternetFanPage.Services
         public IList<ProductResult> getUserProducts(int UserId)
         {
             IList<ProductResult> listToReturn = new List<ProductResult>();
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 var sales = context.Sales.Where(u => u.UserID == UserId);
                 foreach (var sale in sales)

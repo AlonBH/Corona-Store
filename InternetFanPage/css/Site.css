@@ -58,21 +58,29 @@ textarea {
     height: 70px;
     display: flex;
     justify-content: flex-start;
-    align-items:center;
+    align-items: center;
     background: rgb(0,14,83);
     transition: all 0.2s ease-out;
 }
 
-.web-title.scrolled {
-    height: 35px;
-}
+    .web-title.scrolled {
+        height: 35px;
+    }
 
-.web-title.scrolled #mainLogo {
-    height: 33px;
-}
+        .web-title.scrolled #mainLogo {
+            height: 33px;
+        }
 
 #logoutBtn {
-    margin:20px;
+    border-radius: 52px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Trebuchet MS;
+    font-size: 16px;
+    padding: 11px 32px;
+    text-decoration: none;
+    border: 2px solid white;
 }
 
 #loginBtn {
@@ -87,15 +95,15 @@ textarea {
     border: 2px solid white;
 }
 
-#loginBtn:hover {
-    background-color: #ffffff33;
-}
-
-
-    .login {
-        margin-left: auto;
-        margin-right: 25px;
+    #loginBtn:hover {
+        background-color: #ffffff33;
     }
+
+
+.login {
+    margin-left: auto;
+    margin-right: 25px;
+}
 
 
 .home-Title {
@@ -132,8 +140,8 @@ video {
 }
 
 #about {
-    text-align:center;
-    margin-bottom:5%
+    text-align: center;
+    margin-bottom: 5%
 }
 
 .newsTitle {
@@ -283,17 +291,17 @@ video {
     background-color: #b94a48;
 }
 
-.badge-error:hover {
-    background-color: #953b39;
-}
+    .badge-error:hover {
+        background-color: #953b39;
+    }
 
 .badge-success {
     background-color: #468847;
 }
 
-.badge-success:hover {
-    background-color: #356635;
-}
+    .badge-success:hover {
+        background-color: #356635;
+    }
 
 .card {
     border: 1px solid #ccc;
@@ -495,4 +503,3 @@ a {
                     transform: translateY(-3px);
                     box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
                 }
-

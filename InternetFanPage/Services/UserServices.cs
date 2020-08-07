@@ -17,7 +17,7 @@ namespace InternetFanPage.Services
             if (input == null)
                 return LoginResult.Failed;
 
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 var userDetails = context.Users.Where(p => p.Username == input.Username).FirstOrDefault();
 
@@ -44,7 +44,7 @@ namespace InternetFanPage.Services
         {
             if (UserInput is null)
                 return false;
-            using (var Context = new FanPageContext())
+            using (var Context = new CoronaPageContext())
             {
                 User newUser = new User()
                 {
@@ -65,7 +65,7 @@ namespace InternetFanPage.Services
 
         public IList<ProductsUser> ProductsByUser()
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
 
                 var prodByUser = context.Sales.Join(context.Products, s => s.ProductID, p => p.ProductID, (sale, product) => new
@@ -88,7 +88,7 @@ namespace InternetFanPage.Services
 
         private string GetUserName(int key)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 var query = context.Users.Where(u => u.UserID == key).FirstOrDefault();
                 return query.FirstName;
@@ -114,7 +114,7 @@ namespace InternetFanPage.Services
 
         public User GetUser(string userName)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 return context.Users.FirstOrDefault(u => u.Username == userName);
             }
@@ -122,7 +122,7 @@ namespace InternetFanPage.Services
 
         public bool DoesUserExists(string username)
         {
-            using (var context = new FanPageContext())
+            using (var context = new CoronaPageContext())
             {
                 return context.Users.Count(u => u.Username == username) > 0;
             }

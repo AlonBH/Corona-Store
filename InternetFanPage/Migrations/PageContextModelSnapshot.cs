@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InternetFanPage.Migrations
 {
-    [DbContext(typeof(FanPageContext))]
+    [DbContext(typeof(CoronaPageContext))]
     partial class PageContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

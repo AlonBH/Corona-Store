@@ -3,13 +3,13 @@
 
 namespace InternetFanPage.Models
 {
-    public class FanPageContext : DbContext
+    public class CoronaPageContext : DbContext
     {
-        public FanPageContext()
+        public CoronaPageContext()
         {
         }
 
-        public FanPageContext(DbContextOptions<FanPageContext> options)
+        public CoronaPageContext(DbContextOptions<CoronaPageContext> options)
             : base(options)
         {
         }

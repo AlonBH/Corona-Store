@@ -8,7 +8,7 @@ namespace InternetFanPage.Controllers
 {
     public class HomeController : Controller
     {
-        private FanPageContext ct = new FanPageContext();
+        private CoronaPageContext ct = new CoronaPageContext();
         ShopService shopService = new ShopService();
         ProductsPageModel model = new ProductsPageModel();
         LocationsService _locationService = new LocationsService();
