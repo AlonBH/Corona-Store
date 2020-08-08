@@ -2,11 +2,10 @@ pandemic locations:
 - after filter city doesn't show stats, only until press on map
 
 shop:
-filter is hidden by navbar
-change to apropriate products (masks, dildos, more masks)
+- filter is hidden by navbar
+- hover on new product
 
 login/register modals:
-fix ui
+- change ui
 
 manager: 
-change
