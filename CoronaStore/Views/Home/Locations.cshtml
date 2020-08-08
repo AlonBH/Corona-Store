@@ -6,14 +6,15 @@
 
 <link rel="stylesheet" href="~/css/locations.css" />
 
-<form asp-controller="Home" asp-action="Locations" class="form-inline search-form">
-    <h2>Locations</h2>
+<div class="container body-content page-wrapper chiller-theme toggled">
+    <form asp-controller="Home" asp-action="Locations" class="form-inline search-form">
+        <h2>Locations</h2>
 
         <div class="form-group md-form">
             <input class="form-control" type="text" name="SearchTermName" placeholder="Search by city" aria-label="SearchName" style="width:250px">
-        <input class="form-control" type="number" name="SearchTermPopulation" placeholder="Filter by max population" aria-label="SearchPopulation" style="width:160px">
+            <input class="form-control" type="number" name="SearchTermPopulation" placeholder="Filter by max population" aria-label="SearchPopulation" style="width:160px">
             <input id="filterButton" type="submit" class="btn btn-primary" value="Filter" />
-        <a id="filterClear" class="btn btn-danger" href="/Home/Locations">Clear</a>
+            <a id="filterClear" class="btn btn-danger" href="/Home/Locations">Clear</a>
         </div>
     </form>
 
@@ -21,20 +22,20 @@
         <div class="col-sm-3">
 
             <ul class="list-group">
-            <li type="button" class="list-group-item location-list-title">
+                <li type="button" class="list-group-item location-list-title">
                     City Name
                 </li>
 
                 @foreach (var item in Model)
                 {
-                <li type="button" class="list-group-item location-list-item" id="@item.LocationID">
+                    <li type="button" class="list-group-item location-list-item" id="@item.LocationID">
                         @item.City
                     </li>
                 }
             </ul>
 
-        <ul class="list-group" id="location-details" style="display:none;">
-            <li type="button" class="list-group-item current-location" id="cb">
+            <ul class="list-group" id="location-details" style="display:none;">
+                <li type="button" class="list-group-item current-location" id="cb">
                     <div class="cb-card-title">
                         <svg id="cb-x-card" class="cb-x-card">
                             <path fill="none" d="M0 0h24v24H0V0z" />
@@ -51,10 +52,10 @@
                         <div id="cbDate"></div>
                     </div>
                     <div>
-                    <div>
-                        Sick Population:
-                    </div>
-                    <div id="cbPopulation"></div>
+                        <div>
+                            Sick Population:
+                        </div>
+                        <div id="cbPopulation"></div>
                     </div>
 
                     <div id="cbForcast">
