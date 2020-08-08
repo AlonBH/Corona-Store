@@ -340,9 +340,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20190425194606_InitialCreate.cs" />
-    <Compile Include="Migrations\20190425194606_InitialCreate.designer.cs">
-      <DependentUpon>20190425194606_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\20200808145015_corona-store-initial-db.cs" />
+    <Compile Include="Migrations\20200808145015_corona-store-initial-db.designer.cs">
+      <DependentUpon>20200808145015_corona-store-initial-db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\PageContextModelSnapshot.cs" />
     <Compile Include="Models\Category.cs" />

@@ -21,7 +21,7 @@ namespace CoronaStore.Services
             {
                 var userDetails = context.Users.Where(p => p.Username == input.Username).FirstOrDefault();
 
-                if (userDetails == null)
+                if (userDetails == null || input.Password==null || input.Username==null)
                     return LoginResult.Failed;
 
                 var encryptedPassword = convertToMd5(input.Password);
@@ -42,7 +42,7 @@ namespace CoronaStore.Services
 
         public bool Register(RegisterDetails UserInput)
         {
-            if (UserInput is null)
+            if (UserInput is null || CheckInputValid(UserInput))
                 return false;
             using (var Context = new CoronaPageContext())
             {
@@ -61,6 +61,15 @@ namespace CoronaStore.Services
                 Context.SaveChanges();
             }
             return true;
+        }
+
+        private bool CheckInputValid(RegisterDetails userInput)
+        {
+            return (userInput.Address == null ||
+                    userInput.FirstName == null ||
+                    userInput.LastName == null ||
+                    userInput.Password == null ||
+                    userInput.Phone == null || userInput.Username == null);
         }
 
         public IList<ProductsUser> ProductsByUser()
