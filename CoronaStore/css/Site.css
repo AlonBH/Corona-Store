@@ -1,5 +1,13 @@
-﻿body {
+﻿@font-face {
+    font-family: 'Open-sans';
+    src: url('/fonts/mainfont/OpenSans-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
     padding-bottom: 20px;
+    font-family: 'Open-sans'
 }
 
 #welcome {
@@ -14,6 +22,7 @@
 .newsCard {
     margin-bottom: 7%;
 }
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -27,26 +36,23 @@
     color: white;
     height: 50px;
     align-items: center;
-    backdrop-filter: blur(3px);
     backdrop-filter: blur(5px);
 }
 
 .navLink {
     padding: 15px;
-    font-family: monospace;
     font-size: 20px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.navLink a:hover {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: #ff3b3b
 }
 
-@font-face {
-    font-family: myFont;
-    src: url(../fonts/DancingScript.ttf);
+    /* Set width on the form input elements since they're 100% wide by default */
+    input, select, textarea {
+    max-width: 280px;
 }
 
 .fixedPart {
@@ -78,7 +84,6 @@ textarea {
     display: inline-block;
     cursor: pointer;
     color: #ffffff;
-    font-family: Trebuchet MS;
     font-size: 16px;
     padding: 11px 32px;
     text-decoration: none;
@@ -90,7 +95,6 @@ textarea {
     display: inline-block;
     cursor: pointer;
     color: #ffffff;
-    font-family: Trebuchet MS;
     font-size: 16px;
     padding: 11px 32px;
     text-decoration: none;
@@ -110,7 +114,6 @@ textarea {
 
 .home-Title {
     color: antiquewhite;
-    font-family: monospace;
     font-size: 30px;
     text-align: center;
     transition: font-size 2s;
@@ -123,7 +126,6 @@ textarea {
 }
 
 .hello-Title {
-    font-family: myFont;
     font-size: 40px;
     text-align: right;
 }
@@ -148,7 +150,6 @@ video {
 
 .newsTitle {
     text-shadow: 3px 2px gray;
-    font-family: myFont;
     font-size: 50px;
     text-align: center;
     margin-top: 50px;
@@ -174,13 +175,11 @@ video {
     border-radius: 2px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    font-family: roboto;
 }
 
     .loginmodal-container h1 {
         text-align: center;
         font-size: 1.8em;
-        font-family: roboto;
     }
 
     .loginmodal-container input[type=submit] {
@@ -215,7 +214,6 @@ video {
 .loginmodal {
     text-align: center;
     font-size: 14px;
-    font-family: 'Arial', sans-serif;
     font-weight: 700;
     height: 36px;
     padding: 0 8px;
@@ -225,16 +223,15 @@ video {
     border: 0px;
     color: #fff;
     text-shadow: 0 1px rgba(0,0,0,0.1);
-    background-color: #e91e63;
+    background-color: #00165c;
     padding: 17px 0px;
-    font-family: roboto;
     font-size: 14px;
 }
 
     .loginmodal-submit:hover {
         border: 0px;
         text-shadow: 0 1px rgba(0,0,0,0.3);
-        background-color: #357ae8;
+        background-color: #0027a4;
     }
 
 .loginmodal-container a {
@@ -348,11 +345,6 @@ html {
     box-sizing: border-box;
 }
 
-body {
-    font-family: var(--bodyFont);
-    color: var(--textColor);
-    line-height: 1.5;
-}
 
 * {
     box-sizing: inherit;
@@ -410,7 +402,6 @@ a {
             margin: 0;
             width: 100%;
             color: var(--white);
-            font-family: var(--headlinesFont);
             font-size: 25px;
             height: 100%;
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), transparent);
@@ -438,7 +429,6 @@ a {
         }
 
             .ft-recipe .ft-recipe__content .content__header .row-wrapper .recipe-title {
-                font-family: var(--headlinesFont);
                 font-weight: 600;
             }
 
@@ -469,7 +459,6 @@ a {
                 .ft-recipe .ft-recipe__content .content__header .recipe-details .recipe-details-item .title {
                     display: block;
                     margin-top: -4px;
-                    font-family: var(--headlinesFont);
                     font-size: 21px;
                     font-weight: 300;
                 }
@@ -484,7 +473,6 @@ a {
         }
 
             .ft-recipe .ft-recipe__content .content__footer a {
-                font-family: var(--headlinesFont);
                 display: inline-block;
                 background: var(--wildWatermelon);
                 padding: .45em 1em;
